@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom"
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
+import Footer from './Footer'
 
 const Layout = () => {
     const navigate = useNavigate()
@@ -58,7 +59,9 @@ const Layout = () => {
                 </div>
                 
             </nav>
+           
             <Outlet />
+            <Footer />
         </>
     )
 }
