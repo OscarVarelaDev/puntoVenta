@@ -1,45 +1,71 @@
-import React from 'react'
+import { Row, Col } from 'react-bootstrap';
+import {FaJava ,FaGithub }from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  return (
-    <div>
-        <footer className="page-footer font-small blue pt-4">
-            <div className="container-fluid text-center text-md-left">
+    return (
+        <div>
                 <div className="row">
-                    <div className="col-md-12 mt-md-0 mt-3"
-            
-                    >
-                        <h5 className="text-uppercase
-                           
-                        ">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content.</p>
+                    <Row style={{ color: "white"  }}  >
+                        <Col
+                            style={{ backgroundColor: '#884507', height: '25vh', textAlign: 'center',borderRadius: '10px'}}
+                        >
+                            <h5 className="text-uppercase ">Footer Content</h5>
+                            <p>Creado por Martin Anzaldo y  Oscar Varela  </p>
 
-                            <h5 className="text-uppercase">Links</h5>
-                            <ul className="list-unstyled ">
-                                <li>
-                                    <a href="#!">Inicio</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Ventas</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Productos</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Conocenos</a>
-                                </li>
-                            </ul>
-                            </div>
-                            </div>
-                            </div>
-                            </footer>
-                            </div>
+                    <div 
+
+                    style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", color: "white", }}
+                 
+                    >  <h4>Desarrollador Back End</h4>
+                            <Link to="https://github.com/martzom" target="_blank" rel="noreferrer"  style={{
+                                color: "white",
+                                textDecoration: "none",
+                                
+                            }}>
+                             <FaGithub 
+                            style={{color: "white", fontSize: "2rem" }}
+                             />   Martin Anzaldo
+                            </Link>
+                            <br />
+                            <h4>Desarrollador Front End</h4>
+                            <Link to="https://github.com/OscarVarelaDev" target="_blank" rel="noreferrer"  style={{
+                                color: "white",
+                                textDecoration: "none",
+                                
+                            }}>
+                             <FaGithub 
+                            style={{color: "white", fontSize: "2rem" }}
+                             /> Oscar Varela
+                            </Link>
                             
-                         
+                            </div>
+                          
+                            <p>{
+                                new Date().getFullYear()
+                            }</p>
+
+                        </Col>
+                        
+
+                    </Row>
+
+                    <div className="col-md-12 mt-md-0 mt-3"
+
+                    >
+
+
+                    </div>
+
+                </div>
+           
+        </div>
 
 
 
-  )
+
+
+    )
 }
 
 export default Footer

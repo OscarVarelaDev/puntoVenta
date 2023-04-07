@@ -4,16 +4,16 @@ import Register from './views/Register'
 import OlvidePassword from './views/OlvidePassword'
 import Footer from './views/Footer'
 import Index from './views/Index'
+import Catalogo from './views/Catalogo'
 import { Route, Router, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="inicio" element={<Index />} />
-          <Route path="ventas" element={<h1>Ventas</h1>} />
-          <Route path="catalogo-productos" element={<h1>Catalogo de Productos</h1>} />
+        <Route path="/"  element={<Layout />}>
+          <Route index element={<Index />} />
+          <Route path="catalogo-productos" element={<Catalogo/>}/>
           <Route path='productos' element={<h1>Productos</h1>} />
           <Route path='productos/:id' element={<h1>Productos</h1>} />
           <Route path="contacto" element={<h1>Contacto</h1>} />
