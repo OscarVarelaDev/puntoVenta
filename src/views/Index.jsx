@@ -16,7 +16,6 @@ const Index = () => {
 
     return (
         <>
-
             <Row>
                 <h1
                     style={{
@@ -24,13 +23,27 @@ const Index = () => {
                         color: 'white',
                         fontSize: '3rem',
                         position: 'absolute',
-                        top: '20%',
+                        top: '30%',
                         left: '-35%',
                     }}
 
-                >Tienda de Ropa</h1>
+                >¡Bienvenido a la
+                    <br />
+                    <span
+                        style={{
+                            color: 'white',
+                            fontSize: '4rem',
+                            fontWeight: 'bold',
+                        }}
+                    >   Tienda
+                        <br />
+                        Online!
+                    </span>
+
+
+                </h1>
                 <Col
-                    style={{ backgroundColor: '#003366', height: '80vh' }}
+                    style={{ backgroundColor: '#003366', height: '95vh' }}
                 >
 
                 </Col>
@@ -40,7 +53,7 @@ const Index = () => {
                         width: '50%',
                         borderRadius: '10px',
                         position: 'absolute',
-                        top: '45%',
+                        top: '60%',
                         left: '25%',
                     }}
                 >
@@ -56,8 +69,7 @@ const Index = () => {
                     </h1>
                 </div>
                 <Col
-                    style={{ backgroundColor: '#884507', height: '80vh' }}
-                >
+                    style={{ backgroundColor: '#884507', height: '80vh' }}>
 
                 </Col>
             </Row>
@@ -215,7 +227,7 @@ const Index = () => {
                         position: 'absolute',
                         top: '',
                         left: '',
-                        bottom: '-100%',
+                        bottom: '-120%',
                         right: '1%',}}
                         >
                             Las mejores ofertas en ropa 
@@ -226,7 +238,8 @@ const Index = () => {
                         </h2>
                         </Col>
                     </Row>
-
+                    
+                   
                 
             </Row>
            
