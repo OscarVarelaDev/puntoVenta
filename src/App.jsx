@@ -2,10 +2,10 @@ import Layout from './views/Layout'
 import Login from './views/Login'
 import Register from './views/Register'
 import OlvidePassword from './views/OlvidePassword'
-import Footer from './views/Footer'
+import Configuracion from './views/Configuracion'
 import Index from './views/Index'
 import Catalogo from './views/Catalogo'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
           <Route path="iniciar-sesion" element={<Login />} />
           <Route path='contacto' element={<h1>Contacto</h1>} />
           <Route path='olvide-password' element={<OlvidePassword />} />
+          <Route path='configuracion' element={<Configuracion/>} />
          
 
         </Route>
