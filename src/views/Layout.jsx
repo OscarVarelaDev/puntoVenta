@@ -1,11 +1,15 @@
 import { Link, Outlet } from "react-router-dom"
 import { Row, NavDropdown, } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
+import ModalAjustes from "../components/ModalAjustes"
 import Footer from './Footer'
 import Navbar from 'react-bootstrap/Navbar';
 import logo from "../assets/img/logo.jpg"
+import { useState } from "react"
+
 
 const Layout = () => {
+    const [mostrar, setMostrar] = useState(false)
     const navigate = useNavigate()
     const handleShow = () => {
         navigate('registro')
@@ -14,10 +18,9 @@ const Layout = () => {
     const handleLogin = () => {
         navigate('iniciar-sesion')
     }
-    const handleSetting = () => {
-        navigate('configuracion')
-    }
+  
 
+    console.log(mostrar)
 
     return (
         <>
@@ -69,8 +72,9 @@ const Layout = () => {
                         }
                     >Iniciar Sesión</button>
                     <button type="button" className="btn btn-outline-primary m-2"
-                        onClick={() => {
-                            handleSetting()
+                        onClick={
+                            () => {
+                                setMostrar(true)
                         }
                         }
                     >Configuración</button>
@@ -78,7 +82,13 @@ const Layout = () => {
                 </div>
 
             </Navbar>
-
+            {mostrar && <ModalAjustes 
+                setMostrar={setMostrar}
+                mostrar={mostrar}
+            />}
+                        
+                
+                        
             <Outlet />
             <Footer />
         </>
