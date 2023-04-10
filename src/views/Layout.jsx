@@ -18,9 +18,6 @@ const Layout = () => {
     const handleLogin = () => {
         navigate('iniciar-sesion')
     }
-  
-
-    console.log(mostrar)
 
     return (
         <>

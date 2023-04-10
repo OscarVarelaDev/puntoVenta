@@ -1,19 +1,21 @@
-import React from 'react'
+import { useEffect } from 'react'
 import img from '../assets/img/index.jpg'
 import { Row, Col, Card } from 'react-bootstrap'
-
-
-const sectionStyle = {
-    backgroundImage: `url(${img})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '100vh',
-}
+import { useContext } from 'react'
+import ProductosContext from '../context/ProductosProvider'
+import { useState } from 'react'
 
 const Index = () => {
+    const { getProducts } = useContext(ProductosContext)
+    const [products, setProducts] = useState([])
 
+   useEffect(() => {
+        getProducts().then((data) => setProducts(data))
+     
 
+    },[])
 
+console.log("productos",products)
     return (
         <>
             <Row>
@@ -74,127 +76,31 @@ const Index = () => {
                 </Col>
             </Row>
             <Row>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
+                {
+                    products.map((product) => {
+                        return (
+                            <Col key={product._id} >
+                                <Card>
+                                    <Card.Img variant="top" src={product.imgURL} />
+                                    <Card.Body>
+                                        <Card.Title>{product.name}</Card.Title>
+                                        <Card.Text>
+                                            {product.description}
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <Card.Footer>
+                                        <small className="text-muted">Por tan solo  ${product.price}.00</small>
+                                    </Card.Footer>
 
-                    </Card>
+                                </Card>
 
-                </Col>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                <Row>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                <Col >
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-
-                    </Card>
-
-                </Col>
-                </Row>
+                            </Col>
+                        )
+                    }
+                    )
+                }
+         
+            
                     <Row>
 
                     <Col 

@@ -17,18 +17,18 @@ const Register = () => {
             lastname: e.target[1].value,
             email: e.target[2].value,
             password: e.target[3].value,
-            password2: e.target[4].value,
+          
             telephone: e.target[5].value,
             birthdate: e.target[6].value
         }
 
-        if (userRegister.name === '' || userRegister.lastname === '' || userRegister.email === '' || userRegister.password === '' || userRegister.password2 === '' || userRegister.telephone === '' || userRegister.birthdate === '') {
+        if (userRegister.name === '' || userRegister.lastname === '' || userRegister.email === '' || userRegister.password === '' || e.target[4].value === '' || userRegister.telephone === '' || userRegister.birthdate === '') {
             setMessage('Todos los campos son obligatorios')
             setValidated(true)
             return
         }
 
-        if (userRegister.password !== userRegister.password2) {
+        if (userRegister.password !== e.target[4].value) {
             setMessage('Las contraseñas no coinciden')
             setValidated(true)
             return
@@ -37,16 +37,19 @@ const Register = () => {
         setMessage('')
 
         const sendUserRegister = async (userRegister) => {
+            console.log(userRegister)
             try {
-                const response = await fetch('http://localhost:4000/api/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userRegister)
-                })
+                const response = await fetch('https://api-token-products.onrender.comapi/auth/signUp')
                 const data = await response.json()
                 console.log(data)
+                if (data.ok) {
+                    setMessage('Usuario registrado correctamente')
+                    setValidated(true)
+                    setTimeout(() => {
+                        navigate('/login')
+                    }
+                        , 3000)
+                }
 
             } catch (error) {
                 console.log(error)

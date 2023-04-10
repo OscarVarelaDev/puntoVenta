@@ -25,7 +25,7 @@ const Login = () => {
 
     const sendLogin = async (loginData) => {
       try {
-        const url = 'http://localhost:4000/api/login'
+        const url = ''
         const response = await fetch(url, {
           method: 'POST',
           headers: {
