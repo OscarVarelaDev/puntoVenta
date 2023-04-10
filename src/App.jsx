@@ -6,10 +6,11 @@ import Configuracion from './views/Configuracion'
 import Index from './views/Index'
 import Catalogo from './views/Catalogo'
 import { Route, Routes } from 'react-router-dom'
+import { ProductosProvider} from './context/ProductosProvider'
 
 const App = () => {
   return (
-
+    <ProductosProvider>
       <Routes>
         <Route path="/"  element={<Layout />}>
           <Route index element={<Index />} />
@@ -22,14 +23,10 @@ const App = () => {
           <Route path='contacto' element={<h1>Contacto</h1>} />
           <Route path='olvide-password' element={<OlvidePassword />} />
           <Route path='configuracion' element={<Configuracion/>} />
-         
-
         </Route>
         <Route path='*' element={<h1>404 Not Found</h1>} />
- 
-
       </Routes>
-
+    </ProductosProvider>
    
 
 
