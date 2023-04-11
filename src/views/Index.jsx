@@ -1,21 +1,26 @@
-import { useEffect } from 'react'
+
+import { useState,useEffect } from 'react'
 import img from '../assets/img/index.jpg'
 import { Row, Col, Card } from 'react-bootstrap'
-import { useContext } from 'react'
-import ProductosContext from '../context/ProductosProvider'
-import { useState } from 'react'
+import { obtenerProductosAction } from '../actions/productoActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Index = () => {
-    const { getProducts } = useContext(ProductosContext)
-    const [products, setProducts] = useState([])
+    
+    const [products, setProducts]=([])
+    //utilizar dispacht 
 
-   useEffect(() => {
-        getProducts().then((data) => setProducts(data))
-     
+    const dispatch = useDispatch();
+    //manda a llamar la action de productoAction
 
-    },[])
 
-console.log("productos",products)
+    useEffect(() => {
+        const cargarProductos = () => dispatch(obtenerProductosAction)
+        cargarProductos()
+    }, [])
+
+
+
     return (
         <>
             <Row>
@@ -76,7 +81,7 @@ console.log("productos",products)
                 </Col>
             </Row>
             <Row>
-                {
+                {/*  {
                     products.map((product) => {
                         return (
                             <Col key={product._id} >
@@ -98,18 +103,18 @@ console.log("productos",products)
                         )
                     }
                     )
-                }
-         
-            
-                    <Row>
+                } */}
 
-                    <Col 
-                    style={{ backgroundColor: '#003366', height: '80vh',borderRadius:'10px' }}
+
+                <Row>
+
+                    <Col
+                        style={{ backgroundColor: '#003366', height: '80vh', borderRadius: '10px' }}
 
                     >
                         <Card
-                                style={{ width: '100%', height: '100%',opacity: '0.8'   }}                   
-                            >
+                            style={{ width: '100%', height: '100%', opacity: '0.8' }}
+                        >
                             <Card.Img variant="top" src="holder.js/100px180" />
                             <Card.Body>
                                 <Card.Title>Card Title</Card.Title>
@@ -121,34 +126,36 @@ console.log("productos",products)
                             <Card.Footer>
                                 <small className="text-muted">Last updated 3 mins ago</small>
                             </Card.Footer>
-                                </Card>
-                        </Col>
-                        <Col 
-                    style={{ backgroundColor: 'white', height: '80vh' }}
+                        </Card>
+                    </Col>
+                    <Col
+                        style={{ backgroundColor: 'white', height: '80vh' }}
                     >
                         <h2
-                        style={{ color: 'black', fontSize: '3rem',
-                        fontFamily: 'sans-serif',
-                        fontWeight: 'bold',
-                        position: 'absolute',
-                        top: '',
-                        left: '',
-                        bottom: '-120%',
-                        right: '1%',}}
+                            style={{
+                                color: 'black', fontSize: '3rem',
+                                fontFamily: 'sans-serif',
+                                fontWeight: 'bold',
+                                position: 'absolute',
+                                top: '',
+                                left: '',
+                                bottom: '-120%',
+                                right: '1%',
+                            }}
                         >
-                            Las mejores ofertas en ropa 
+                            Las mejores ofertas en ropa
                             <br />
-                            <span style={{color:'#003366'}}>para toda la familia</span>
+                            <span style={{ color: '#003366' }}>para toda la familia</span>
                             <br />
-                            <span style={{color:'red'}}>¡Registrate para obtener tu cupón!</span>
+                            <span style={{ color: 'red' }}>¡Registrate para obtener tu cupón!</span>
                         </h2>
-                        </Col>
-                    </Row>
-                    
-                   
-                
+                    </Col>
+                </Row>
+
+
+
             </Row>
-           
+
 
         </>
 
