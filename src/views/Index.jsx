@@ -2,13 +2,26 @@
 import { useState,useEffect } from 'react'
 import img from '../assets/img/index.jpg'
 import { Row, Col, Card } from 'react-bootstrap'
-
+import { obtenerProductosAction } from '../actions/productoActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Index = () => {
-    //utilizar dispacht 
-
+const [allProducts, setAllProducts] = useState([])
+    const dispatch = useDispatch()
+   const obtenerProductos=()=>dispatch(obtenerProductosAction())
+    const products = useSelector(state => state.productos.productos)
+   
+    useEffect(() => {
+        obtenerProductos()
+    }, [])
   
+    useEffect(() => {
+        setAllProducts(products.data)
+    }, [products])
+      
+        if (allProducts.length === 0) return null
+
+
 
     return (
         <>
@@ -70,8 +83,8 @@ const Index = () => {
                 </Col>
             </Row>
             <Row>
-                {/*  {
-                    products.map((product) => {
+                {
+                    allProducts.map((product) => {
                         return (
                             <Col key={product._id} >
                                 <Card>
@@ -92,7 +105,7 @@ const Index = () => {
                         )
                     }
                     )
-                } */}
+                }
 
 
                 <Row>
