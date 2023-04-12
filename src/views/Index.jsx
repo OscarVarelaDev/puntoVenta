@@ -1,26 +1,20 @@
 
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import img from '../assets/img/index.jpg'
 import { Row, Col, Card } from 'react-bootstrap'
 import { obtenerProductosAction } from '../actions/productoActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Index = () => {
-const [allProducts, setAllProducts] = useState([])
-    const dispatch = useDispatch()
-   const obtenerProductos=()=>dispatch(obtenerProductosAction())
-    const products = useSelector(state => state.productos.productos)
-   
-    useEffect(() => {
-        obtenerProductos()
-    }, [])
-  
-    useEffect(() => {
-        setAllProducts(products.data)
-    }, [products])
-      
-        if (allProducts.length === 0) return null
 
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const cargarProductos = () => dispatch(obtenerProductosAction())
+        cargarProductos()
+    }, [])
+
+    const productos = useSelector(state => state.productos.productos)
 
 
     return (
@@ -84,7 +78,10 @@ const [allProducts, setAllProducts] = useState([])
             </Row>
             <Row>
                 {
-                    allProducts.map((product) => {
+                    productos.length === 0 ? 'Cargando...' : null
+                }
+                {
+                    productos.map((product) => {
                         return (
                             <Col key={product._id} >
                                 <Card>

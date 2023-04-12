@@ -60,8 +60,8 @@ export function obtenerProductosAction(){
         dispatch( descargarProductos() )
         try {
             const respuesta = await clienteAxios.get('/products')
-            dispatch( descargarProductosExito(respuesta))
-            console.log(respuesta)
+            dispatch( descargarProductosExito(respuesta.data))
+          
         } catch (error) {
             console.log(error)
             dispatch( descargarProductosError())
