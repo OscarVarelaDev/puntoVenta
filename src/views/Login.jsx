@@ -2,25 +2,34 @@ import { Form, Button, Col, Row, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react'
 import { Link } from "react-router-dom"
 import imgLogin from '../assets/img/login.jpg'
+import { useDispatch } from 'react-redux'
+
+import {obtenerUsuarioAction} from '../actions/usuarioActions'
+
 const Login = () => {
   const [alert, setAlert] = useState('')
   const [validado, setValidado] = useState(false)
+  const dispatch = useDispatch()
+
+  const obtenerUsuario = (dataUser) => dispatch(obtenerUsuarioAction(dataUser))
 
   const handleLogin = (e) => {
     e.preventDefault()
 
-    const loginData = {
+    const dataUser = {
       email: e.target[0].value,
       password: e.target[1].value
 
     }
-    if (loginData.email === '' || loginData.password === '') {
+    if (dataUser.email === '' || dataUser.password === '') {
       setAlert('Todos los campos son obligatorios')
       setValidado(true)
       return
     }
     setValidado(false)
- 
+    console.log(dataUser)
+    obtenerUsuario(dataUser)
+
 
   }
 
