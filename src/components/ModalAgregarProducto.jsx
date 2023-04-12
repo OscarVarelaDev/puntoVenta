@@ -2,27 +2,64 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { FormSelect } from 'react-bootstrap';
 import Alerta from './Alerta';
-import sendUpdate from '../helpers/index.js';
+import { useDispatch, useSelector } from 'react-redux';
+
+//action Redux
+
+import { crearNuevoProductoAction}  from '../actions/productoActions'
 
 
-const ModalAgregarProducto = ({
-    mostrar, setMostrar
-}) => {
-
+const ModalAgregarProducto = ({ mostrar, setMostrar }) => {
+    const state = useSelector(state => state)
+    const error = useSelector(state => state.productos.error)
+  
+    
     const [valid, setValid] = useState(false)
     const [text, setText] = useState("")
+    const [variant, setVariant] = useState("")
+    const dispatch = useDispatch()
+
     const handleClose = () => {
         setMostrar(false)
     }
+
+    const agregarProducto = (nuevoProducto) => dispatch(crearNuevoProductoAction(nuevoProducto))
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        const data = {
-            email: e.target[1].value,
-            role: e.target[2].value,
+
+        const nuevoProducto = {
+            nombreProducto: e.target[1].value,
+            precio: e.target[2].value,
+            categoria: e.target[3].value,
+            imagen: e.target[4].value,
+            comentario: e.target[5].value
+
+        }
+    
+        if(nuevoProducto.nombreProducto === "" || nuevoProducto.precio === "" || nuevoProducto.categoria === "" || nuevoProducto.comentario === ""){
+            setVariant('danger')
+            setValid(true)
+            setText("Todos los campos son obligatorios")
+            return
         }
 
+        if(nuevoProducto.precio <= 0){
+            setVariant('danger')
+            setValid(true)
+            setText("El precio debe ser mayor a 0")
+            return
+        }
+   
+      
+
+
+        setValid(false)
+        setText("")
+    
+        agregarProducto(nuevoProducto)
+        handleClose()
 
     }
 
@@ -30,7 +67,7 @@ const ModalAgregarProducto = ({
     return (
         <>
             <Modal show={mostrar} onHide={handleClose}>
-                {valid && <Alerta text={text} />}
+                {valid&& <Alerta text={text} variant={variant} />}
                 <Form
                     onSubmit={handleSubmit}
                 >
@@ -50,12 +87,10 @@ const ModalAgregarProducto = ({
                             <Form.Label>Categoria</Form.Label>
                             <Form.Control type="text" placeholder="Ingresa la categoria del producto" />
                         </Form.Group>
-                        <Form.Group>
-                            <Form.Label
-                                for="formFileSm" className="form-label">
-                                Sube la imagen del producto
-                                <input className="form-control form-control-sm" id="formFileSm" type="file" name='fileUpload' />
-                            </Form.Label>
+                       
+                        <Form.Group controlId="formBasicGuardarFile">
+                            <Form.Label>Imagen</Form.Label>
+                            <Form.Control type="file" placeholder="Ingresa la imagen del producto" />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicNombre">

@@ -1,11 +1,18 @@
 import { useState } from 'react'
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+
+import { crearNuevoUsuarioAction} from '../actions/usuarioActions';
 
 const Register = () => {
     const [validated, setValidated] = useState(false)
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const agregarNuevoUsuario =(userRegister)=> dispatch(crearNuevoUsuarioAction(userRegister))
+
     const handleReturn = () => {
         navigate('/')
     }
@@ -36,27 +43,7 @@ const Register = () => {
         setValidated(false)
         setMessage('')
 
-        const sendUserRegister = async (userRegister) => {
-            console.log(userRegister)
-            try {
-                const response = await fetch('https://api-token-products.onrender.comapi/auth/signUp')
-                const data = await response.json()
-                console.log(data)
-                if (data.ok) {
-                    setMessage('Usuario registrado correctamente')
-                    setValidated(true)
-                    setTimeout(() => {
-                        navigate('/login')
-                    }
-                        , 3000)
-                }
-
-            } catch (error) {
-                console.log(error)
-            }
-
-        }
-        sendUserRegister(userRegister)
+        agregarNuevoUsuario(userRegister)
 
     }
     return (

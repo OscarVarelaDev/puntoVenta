@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const clienteAxios = axios.create({
-    baseURL:"https://api-token-products.onrender.com/api/"
+    //baseURL:"http://localhost:4000",
+  baseURL:"https://api-token-products.onrender.com/api/"
 
 });
 

@@ -1,0 +1,122 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Cacetines",
+      "precio": "299",
+      "comentarios": "Excelente",
+      "img": "https://img.ltwebstatic.com/images3_pi/2021/12/15/1639561775083fb51d3641abe0a0b8e08341ab15be.webp",
+      "categoria": "Cacetines"
+    },
+    {
+      "id": 2,
+      "nombre": "Playeras",
+      "precio": "299",
+      "comentarios": "Excelente",
+      "img": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fa9%2F60%2Fa96081c780639c6f8d853a9ad4bd9ce712690c4d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_printed%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/fullscreen]",
+      "categoria": "Playeras"
+    },
+    {
+      "id": 3,
+      "nombre": "Pantalones negros ",
+      "precio": "599",
+      "comentarios": "Excelente",
+      "img": "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F77%2Fb5%2F77b566ce3845791ecb47a6252b6c1e16fd93ea68.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D"
+    },
+    {
+      "id": 4,
+      "nombre": "Zapatos Negros casuales",
+      "precio": "999",
+      "comentarios": "Excelente",
+      "img": "https://m.media-amazon.com/images/I/61Mk2x-Av7L._AC_SY575_.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Skechers, Zapatos Casuales para Hombre, Moreno",
+      "precio": "999",
+      "comentarios": "Excelente",
+      "img": "https://m.media-amazon.com/images/I/91CurXTesTL._AC_SX575_.jpg"
+    },
+    {
+      "nombreProducto": "Zapatos",
+      "precio": "400",
+      "categoria": "Zapatos de charol",
+      "imagen": "C:\\fakepath\\120769542_10225104637743641_1182180695228997216_n.jpg",
+      "comentario": "Tamaños de 2, 8",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Zapatos",
+      "precio": "400",
+      "categoria": "Zapatos de charol",
+      "imagen": "C:\\fakepath\\120769542_10225104637743641_1182180695228997216_n.jpg",
+      "comentario": "Tamaños de 2, 8",
+      "id": 7
+    },
+    {
+      "nombreProducto": "producto",
+      "precio": "2",
+      "categoria": "sadadas",
+      "imagen": "",
+      "comentario": "asddsad",
+      "id": 8
+    },
+    {
+      "nombreProducto": "producto",
+      "precio": "2",
+      "categoria": "sadadas",
+      "imagen": "",
+      "comentario": "asddsad",
+      "id": 9
+    },
+    {
+      "nombreProducto": "producto",
+      "precio": "2",
+      "categoria": "sadadas",
+      "imagen": "",
+      "comentario": "asddsad",
+      "id": 10
+    },
+    {
+      "nombreProducto": "producto",
+      "precio": "2",
+      "categoria": "sadadas",
+      "imagen": "",
+      "comentario": "asddsad",
+      "id": 11
+    },
+    {
+      "nombreProducto": "producto",
+      "precio": "2",
+      "categoria": "sadadas",
+      "imagen": "",
+      "comentario": "asddsad",
+      "id": 12
+    },
+    {
+      "nombreProducto": "nuevo producto",
+      "precio": "293",
+      "categoria": "kmdfsnk",
+      "imagen": "",
+      "comentario": "molfsdk",
+      "id": 13
+    },
+    {
+      "nombreProducto": "nuevo producto2",
+      "precio": "293",
+      "categoria": "kmdfsnk",
+      "imagen": "",
+      "comentario": "molfsdk",
+      "id": 14
+    },
+    {
+      "nombreProducto": "asdasd",
+      "precio": "1",
+      "categoria": "sadsadsa",
+      "imagen": "C:\\fakepath\\120769542_10225104637743641_1182180695228997216_n.jpg",
+      "comentario": "sadasd",
+      "id": 15
+    }
+  ]
+
+}

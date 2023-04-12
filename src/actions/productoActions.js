@@ -1,74 +1,87 @@
 import {
-    DESCARGAR_PRODUCTOS,
-    DESCARGAR_PRODUCTOS_EXITO,
-    DESCARGAR_PRODUCTOS_ERROR,
-
     AGREGAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
-    AGREGAR_PRODUCTO_ERROR
+    AGREGAR_PRODUCTO_ERROR,
+
+    COMENZAR_DESCARGA_PRODUCTOS,
+    DESCARGA_PRODUCTOS_EXITO,
+    DESCARGA_PRODUCTOS_ERROR,
 
 
+} from '../types';  //importamos los types
+import clienteAxios from '../config/axios';
+import Swal from 'sweetalert2';
+//crear nuevos productos
 
-
-} from '../types/index'
-import clienteAxios from '../config/axios'
-
-export function nuevoProductoAction(producto) {
-    return (dispatch) => {
-        dispatch(agregarProducto())
+export function crearNuevoProductoAction(nuevoProducto) {
+      return async(dispatch)=>{
+        dispatch( agregarProducto())
         try {
-            dispatch(agregarProductoExito())
+             dispatch( agregarProductoExito(nuevoProducto))
+          await  clienteAxios.post('/productos',nuevoProducto)
+          Swal.fire(
+            'Correcto',
+            'El producto se agrego correctamente',
+            'success'
+
+          )
+
         } catch (error) {
-            dispatch(agregarProductoError(true))
+            dispatch( agregarProductoError(true))
+            Swal.fire({
+                icon: 'error',
+                title: 'Hubo un error',
+                text: 'Hubo un error, intenta de nuevo'
+                })
         }
-    }
+   
+        
+      }
+    
 }
 
-// Crear nuevos productos
-export function obtenerProductosAction() {
-
-    return async (dispatch) => {
-        dispatch(descargarProductos())
-        try {
-            dispatch(descargarProductosExito())
-        } catch (error) {
-            dispatch(descargarProductosError(true))
-            console.log(error)
-        }
-    }
-}
-
-const descargarProductos = () => ({
-    type: DESCARGAR_PRODUCTOS,
-    //es la parte que modifica el state
-    payload: true
-})
 const agregarProducto = () => ({
-
     type: AGREGAR_PRODUCTO,
     payload: true
 })
-
-// si obtenemos los produvtos
-const descargarProductosExito = () => ({
-    type: DESCARGAR_PRODUCTOS_EXITO,
-    //es la parte que modifica el state
-    payload: true
-})
-
-const agregarProductoExito = () => ({
+//Si el porducto se guarda en la base de datos
+const agregarProductoExito = nuevoProducto => ({
     type: AGREGAR_PRODUCTO_EXITO,
-    payload: true
+    payload: nuevoProducto
 })
-
-
 const agregarProductoError = estado => ({
     type: AGREGAR_PRODUCTO_ERROR,
     payload: estado
 })
 
-const descargarProductosError= estado =>({
-    type:DESCARGAR_PRODUCTOS_ERROR,
-    payload:estado
+//funcion que descarga los productos de la base de datos
+export function obtenerProductosAction(){
+    return async (dispatch) => {
+        dispatch( descargarProductos() )
+        try {
+            const respuesta = await clienteAxios.get('/productos')
+            dispatch( descargarProductosExito(respuesta.data))
+        } catch (error) {
+            console.log(error)
+            dispatch( descargarProductosError())
+        }
+    }
+}
+
+const descargarProductos = () => ({
+    type: COMENZAR_DESCARGA_PRODUCTOS,
+    payload: true
 })
+const descargarProductosExito = productos => ({
+    type: DESCARGA_PRODUCTOS_EXITO,
+    payload: productos
+})
+const descargarProductosError = () => ({
+    type: DESCARGA_PRODUCTOS_ERROR,
+    payload: true
+})
+
+
+
+
 

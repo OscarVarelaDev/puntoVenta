@@ -6,7 +6,7 @@ import Configuracion from './views/Configuracion'
 import Index from './views/Index'
 import Catalogo from './views/Catalogo'
 import { Route, Routes } from 'react-router-dom'
-import { ProductosProvider } from './context/ProductosProvider'
+  
 
 //Redux
 import { Provider } from 'react-redux'
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />
           <Route path="catalogo-productos" element={<Catalogo />} />
-          <Route path='productos' element={<Productos/>} />
+          <Route path='productos' element={<Productos />} />
           <Route path='productos/:id' element={<h1>Productos</h1>} />
           <Route path="contacto" element={<h1>Contacto</h1>} />
           <Route path="registro" element={<Register />} />
@@ -30,6 +30,7 @@ const App = () => {
           <Route path='configuracion' element={<Configuracion />} />
         </Route>
         <Route path='*' element={<h1>404 Not Found</h1>} />
+
       </Routes>
     </Provider>
 

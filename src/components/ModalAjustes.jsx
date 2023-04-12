@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { FormSelect } from 'react-bootstrap';
 import Alerta from './Alerta';
-import  sendUpdate  from '../helpers/index.js';
 
 const ModalAjustes = ({ mostrar, setMostrar }) => {
     const [valid, setValid] = useState(false)

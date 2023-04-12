@@ -1,8 +1,8 @@
 import { Alert } from "react-bootstrap"
 
-const Alerta = ({text}) => {
+const Alerta = ({text,variant}) => {
   return (
-    <Alert style={{ textAlign: "center" }} variant={text === "Debe seleccionar un rol valido" ? "danger" : "success"}>{text}</Alert>
+    <Alert style={{ textAlign: "center" }} variant={variant}>{text}</Alert>
 
   )
 }

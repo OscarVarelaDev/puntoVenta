@@ -2,24 +2,13 @@
 import { useState,useEffect } from 'react'
 import img from '../assets/img/index.jpg'
 import { Row, Col, Card } from 'react-bootstrap'
-import { obtenerProductosAction } from '../actions/productoActions'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 const Index = () => {
-    
-    const [products, setProducts]=([])
     //utilizar dispacht 
 
-    const dispatch = useDispatch();
-    //manda a llamar la action de productoAction
-
-
-    useEffect(() => {
-        const cargarProductos = () => dispatch(obtenerProductosAction)
-        cargarProductos()
-    }, [])
-
-
+  
 
     return (
         <>
