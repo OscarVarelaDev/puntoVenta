@@ -1,9 +1,8 @@
-import { useContext } from "react"
-import ProductosContext from "../context/ProductosProvider"
+
+
 import { Col, Row } from "react-bootstrap"
 const Catalogo = () => {
 
-    const {hola} = useContext(ProductosContext)
     return (
 
         <Row>
