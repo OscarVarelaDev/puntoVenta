@@ -11,7 +11,7 @@ import { Route, Routes } from 'react-router-dom'
 //Redux
 import { Provider } from 'react-redux'
 import store from './store'
-import Productos from './views/Productos/Productos'
+import Productos from './views/Productos'
 
 const App = () => {
   return (
